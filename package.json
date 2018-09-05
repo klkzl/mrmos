@@ -1,0 +1,27 @@
+{
+  "name": "react-redux-webpack-config",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "klkzl",
+  "license": "MIT",
+  "scripts": {
+    "serve": "live-server public/",
+    "build": "webpack --watch"
+  },
+  "dependencies": {
+    "@babel/cli": "^7.0.0",
+    "@babel/core": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.2",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "live-server": "^1.2.0",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
+    "webpack": "^4.17.2"
+  },
+  "devDependencies": {
+    "webpack-cli": "^3.1.0"
+  }
+}
