@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import 'normalize.css';
-import './styles/styles.scss';
+import './styles/styles.css';
 
 const App = () => (
   <div>
