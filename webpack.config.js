@@ -19,7 +19,18 @@ module.exports = {
           'style-loader',
           'css-loader'
         ]
-       }
+       },
+       {
+        test: /\.(png|jpg|gif)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: './src/styles/images/[hash]-[name].[ext]'
+            }
+          }
+        ]
+    }
     ]
   }
 };
