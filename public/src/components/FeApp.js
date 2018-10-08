@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { Component } from 'react';
+
+import { DragDropContext } from 'react-beautiful-dnd';
 
 import theme from '../styles/base/Theme';
 import { ThemeProvider } from 'styled-components';
@@ -12,13 +14,23 @@ const Containter = styled.div`
 	font-family: 'Arial';
 `;
 
-const FeApp = () => (
-	<ThemeProvider theme={theme}>
-		<Containter>
-      <Ilustration />
-			<Navigation />
-		</Containter>
-	</ThemeProvider>
-);
+class FeApp extends Component {
 
+	onDragEnd = result => {
+
+	}
+
+	render() {
+		return (
+			<ThemeProvider theme={theme}>
+			<Containter>
+				<DragDropContext onDragEnd={this.onDragEnd}>
+					<Ilustration />
+				</DragDropContext>
+				<Navigation />
+			</Containter>
+		</ThemeProvider>
+		);
+	}
+}
 export default FeApp;
