@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { DragDropContext } from 'react-beautiful-dnd';
+import Draggable, { DraggableCore } from 'react-draggable';
 
 import theme from '../styles/base/Theme';
 import { ThemeProvider } from 'styled-components';
@@ -12,21 +12,20 @@ import Navigation from './Navigation';
 const Containter = styled.div`
 	display: flex;
 	font-family: 'Arial';
+	height: 100vh;
 `;
 
 class FeApp extends Component {
-
-	onDragEnd = result => {
-
+	state = {
+		position: [0, 0],
 	}
 
 	render() {
+		const { position } = this.state;
 		return (
 			<ThemeProvider theme={theme}>
 			<Containter>
-				<DragDropContext onDragEnd={this.onDragEnd}>
-					<Ilustration />
-				</DragDropContext>
+					<Ilustration position={position} />
 				<Navigation />
 			</Containter>
 		</ThemeProvider>

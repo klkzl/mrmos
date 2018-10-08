@@ -1,14 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { Droppable, Draggable } from 'react-beautiful-dnd';
-
 import unify from '../styles/images/unify2.png';
 
 const Container = styled.div`
   background-image: linear-gradient(${props => props.theme.ilustrationLightGrey}, ${props => props.theme.ilustrationMediumGrey});
   flex-grow: 1;
-  height: 100vh;
   position: relative;
 `;
 
@@ -34,27 +31,10 @@ const Unify = styled.img`
 `;
 
 const Ilustration = () => (
-  <Droppable droppableId="1">
-  {provided => (
-    <Container
-      innerRef={provided.innerRef}
-      {...provided.droppableProps}
-    >
-      {/*<Circle />*/}
-      <Draggable draggableId="1" index="1">
-        {provided => (
-          <Unify
-            {...provided.draggableProps}
-            {...provided.dragHandleProps}
-            innerRef={provided.innerRef}
-            src={unify}
-          />
-        )}
-      </Draggable>
-      {provided.placeholder}
-    </Container>
-  )}
-  </Droppable>
+  <Container>
+    {/*<Circle />*/}
+    <Unify src={unify} />
+  </Container>
 );
 
 export default Ilustration;

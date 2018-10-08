@@ -4,7 +4,6 @@ import styled from 'styled-components';
 const Container = styled.div`
 	background-image: linear-gradient(${props => props.theme.nawigationGrey}, black);
 	color: white;
-	height: 100vh;
   font-weight: 600;
 	padding: ${props => props.theme.module}px ${props => props.theme.module * .5}px;
   width: ${props => props.theme.module * 10}px;
