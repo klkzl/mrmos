@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Draggable, { DraggableCore } from 'react-draggable';
 
 import unify from '../styles/images/unify2.png';
 
@@ -21,6 +22,7 @@ const Circle = styled.div`
 `;
 
 const Unify = styled.img`
+  cursor: pointer;
   display: block;
   height: ${props => props.theme.module * 3}px;
   left: 50%;
@@ -32,8 +34,13 @@ const Unify = styled.img`
 
 const Ilustration = () => (
   <Container>
-    {/*<Circle />*/}
-    <Unify src={unify} />
+    <Draggable bounds="parent">
+      <div style={{width: 100, height: 100}}>
+        <Circle />
+        <Unify src={unify} />
+      </div>
+    </Draggable>
+
   </Container>
 );
 

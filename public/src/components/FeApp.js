@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 
-import Draggable, { DraggableCore } from 'react-draggable';
-
 import theme from '../styles/base/Theme';
 import { ThemeProvider } from 'styled-components';
 import styled from 'styled-components';
