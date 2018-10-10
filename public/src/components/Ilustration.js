@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import styled from 'styled-components';
 import Draggable, { DraggableCore } from 'react-draggable';
+
+import { CLIENTS } from '../constants/clients';
 
 import unify from '../styles/images/unify2.png';
 
@@ -58,10 +60,31 @@ const Scale = styled.div`
   width: 100px;
 `;
 
-const Ilustration = () => (
+const Client = styled.div`
+  background-color: red;
+  border-radius: 50%;
+  height: ${props => props.theme.module / 3}px;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: ${props => props.theme.module / 3}px;
+  z-index: 2;
+`;
+
+const Ilustration = ()  => (
   <Container>
+    <Fragment>
+      {CLIENTS.map(item => (
+        <Client
+          key={item}
+          style={{
+            left: Math.floor(Math.random() * (window.innerWidth - 310)),
+            top: Math.floor(Math.random() * (window.innerHeight - 10))
+          }}
+        />
+      ))}
+    </Fragment>
     <Draggable bounds="parent">
-      <div style={{width: 240, height: 240}}>
+      <div style={{ width: 240, height: 240 }}>
         <Circle />
         <Unify src={unify} />
         <UnifyCover />

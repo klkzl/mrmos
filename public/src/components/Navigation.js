@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 const Container = styled.div`
 	background-image: linear-gradient(${props => props.theme.nawigationGrey}, black);
+  box-sizing: border-box;
 	color: white;
   font-weight: 600;
 	padding: ${props => props.theme.module}px ${props => props.theme.module * .5}px;
