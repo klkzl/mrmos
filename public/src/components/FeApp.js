@@ -14,16 +14,14 @@ const Containter = styled.div`
 `;
 
 class FeApp extends Component {
-	state = {
-		position: [0, 0],
+	calculateDimensions() {
+		console.log('cos sie dzieje');
 	}
-
 	render() {
-		const { position } = this.state;
 		return (
 			<ThemeProvider theme={theme}>
 			<Containter>
-					<Ilustration position={position} />
+				<Ilustration calculateDimensions={this.calculateDimensions} />
 				<Navigation />
 			</Containter>
 		</ThemeProvider>

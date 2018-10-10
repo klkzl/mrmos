@@ -13,6 +13,7 @@ const Container = styled.div`
 const Circle = styled.div`
   background-color: rgba(68, 137, 244, 0.4);
   border-radius: 50%;
+  cursor: pointer;
   height: ${props => props.theme.module * 8}px;
   left: 50%;
   position: absolute;
@@ -22,7 +23,7 @@ const Circle = styled.div`
 `;
 
 const Unify = styled.img`
-  cursor: pointer;
+  // cursor: pointer;
   display: block;
   height: ${props => props.theme.module * 3}px;
   left: 50%;
@@ -32,12 +33,25 @@ const Unify = styled.img`
   width: ${props => props.theme.module * 3}px;
 `;
 
+const UnifyCover = styled.div`
+  background-color: transparent;
+  cursor: pointer;
+  height: ${props => props.theme.module * 3}px;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%,-50%);
+  top: 50%;
+  width: ${props => props.theme.module * 3}px;
+  border-radius: 50%;
+`;
+
 const Ilustration = () => (
   <Container>
     <Draggable bounds="parent">
-      <div style={{width: 100, height: 100}}>
+      <div style={{width: 240, height: 240}}>
         <Circle />
         <Unify src={unify} />
+        <UnifyCover />
       </div>
     </Draggable>
 

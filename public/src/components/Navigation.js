@@ -6,7 +6,7 @@ const Container = styled.div`
 	color: white;
   font-weight: 600;
 	padding: ${props => props.theme.module}px ${props => props.theme.module * .5}px;
-  width: ${props => props.theme.module * 10}px;
+	width: ${props => props.theme.module * 10}px;
 `;
 
 const Title = styled.h4`
