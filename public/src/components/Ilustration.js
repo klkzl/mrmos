@@ -23,7 +23,6 @@ const Circle = styled.div`
 `;
 
 const Unify = styled.img`
-  // cursor: pointer;
   display: block;
   height: ${props => props.theme.module * 3}px;
   left: 50%;
@@ -35,14 +34,28 @@ const Unify = styled.img`
 
 const UnifyCover = styled.div`
   background-color: transparent;
+  border-radius: 50%;
   cursor: pointer;
   height: ${props => props.theme.module * 3}px;
   left: 50%;
   position: absolute;
-  transform: translate(-50%,-50%);
   top: 50%;
+  transform: translate(-50%,-50%);
   width: ${props => props.theme.module * 3}px;
-  border-radius: 50%;
+`;
+
+const Scale = styled.div`
+  border: 1px solid ${props => props.theme.fontGrey};
+  border-top: none;
+  box-sizing: border-box;
+  bottom: ${props => props.theme.module}px;
+  color: ${props => props.theme.fontGrey};
+  height: ${props => props.theme.module * .5}px;
+  padding-bottom: ${props => props.theme.module / 2}px;
+  position: absolute;
+  right: ${props => props.theme.module}px;
+  text-align: center;
+  width: 100px;
 `;
 
 const Ilustration = () => (
@@ -54,7 +67,9 @@ const Ilustration = () => (
         <UnifyCover />
       </div>
     </Draggable>
-
+    <Scale>
+      100m
+    </Scale>
   </Container>
 );
 
