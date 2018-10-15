@@ -91,6 +91,10 @@ const Button = styled.button`
 		color: white;
 		transition: all .15s linear;
 	}
+
+	&:focus {
+		outline: none;
+	}
 `;
 
 const Navigation = ( props ) => (
