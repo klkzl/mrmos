@@ -1,4 +1,6 @@
 const theme = {
+	fontMain: 'Arial',
+
 	fontGrey: '#8c877c',
 
 	nawigationGrey: '#252b32',

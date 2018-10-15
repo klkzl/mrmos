@@ -4,7 +4,7 @@ import Draggable, { DraggableCore } from 'react-draggable';
 
 import { CLIENTS } from '../constants/clients';
 
-import unify from '../styles/images/unify2.png';
+import unifi from '../styles/images/unifi.png';
 
 const Container = styled.div`
   background-image: linear-gradient(${props => props.theme.ilustrationLightGrey}, ${props => props.theme.ilustrationMediumGrey});
@@ -12,38 +12,38 @@ const Container = styled.div`
   position: relative;
 `;
 
-const Circle = styled.div`
+const Coverage = styled.div`
   background-color: rgba(68, 137, 244, 0.4);
   border-radius: 50%;
   cursor: pointer;
-  height: ${props => props.theme.module * 8}px;
+  height: 160px;
   left: 50%;
   position: absolute;
   top: 50%;
   transform: translate(-50%,-50%);
-  width: ${props => props.theme.module * 8}px;
+  width: 160px;
 `;
 
-const Unify = styled.img`
+const Unifi = styled.img`
   display: block;
-  height: ${props => props.theme.module * 3}px;
+  height: ${props => props.theme.module * 2}px;
   left: 50%;
   position: absolute;
   transform: translate(-50%,-50%);
   top: 50%;
-  width: ${props => props.theme.module * 3}px;
+  width: ${props => props.theme.module * 2}px;
 `;
 
-const UnifyCover = styled.div`
+const UnifiCover = styled.div`
   background-color: transparent;
   border-radius: 50%;
   cursor: pointer;
-  height: ${props => props.theme.module * 3}px;
+  height: ${props => props.theme.module * 2}px;
   left: 50%;
   position: absolute;
   top: 50%;
   transform: translate(-50%,-50%);
-  width: ${props => props.theme.module * 3}px;
+  width: ${props => props.theme.module * 2}px;
 `;
 
 const Scale = styled.div`
@@ -53,7 +53,7 @@ const Scale = styled.div`
   bottom: ${props => props.theme.module}px;
   color: ${props => props.theme.fontGrey};
   height: ${props => props.theme.module * .5}px;
-  padding-bottom: ${props => props.theme.module / 2}px;
+  padding-bottom: ${props => props.theme.module * .6}px;
   position: absolute;
   right: ${props => props.theme.module}px;
   text-align: center;
@@ -77,17 +77,17 @@ const Ilustration = ()  => (
         <Client
           key={item}
           style={{
-            left: Math.floor(Math.random() * (window.innerWidth - 310)),
-            top: Math.floor(Math.random() * (window.innerHeight - 10))
+            left: Math.floor(Math.random() * (window.innerWidth - 320) + 10),
+            top: Math.floor(Math.random() * (window.innerHeight - 20) + 10)
           }}
         />
       ))}
     </Fragment>
     <Draggable bounds="parent">
-      <div style={{ width: 240, height: 240 }}>
-        <Circle />
-        <Unify src={unify} />
-        <UnifyCover />
+      <div style={{ width: 160, height: 160 }}>
+        <Coverage />
+        <Unifi src={unifi} />
+        <UnifiCover />
       </div>
     </Draggable>
     <Scale>

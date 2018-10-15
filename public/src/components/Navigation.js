@@ -61,7 +61,6 @@ const Span = styled.span`
 	top: 0;
 	width: ${props => props.theme.module * .7}px;
 
-
 	&:hover {
 		background-color: white;
 		opacity: .5;
@@ -94,21 +93,44 @@ const Button = styled.button`
 	}
 `;
 
-const Navigation = () => (
+const Navigation = ( props ) => (
 	<Container>
-		<Title>TX Power</Title>
-		<Select>
-			<Option>High (4dBm)</Option>
-			<Option>Medium(6dBm)</Option>
-			<Option>Low (16dBm)</Option>
-		</Select>
-		<Title>Radio</Title>
-		<Label><Input type="radio"/><Span></Span>2.4GHz</Label>
-		<Label><Input type="radio"/><Span></Span>5GHz</Label>
-		<ButtonsContainer>
-			<Button>Save</Button>
-			<Button>Cancel</Button>
-		</ButtonsContainer>
+		<form onSubmit={props.calculateCoverage}>
+
+			<Title>TX Power</Title>
+			<Select name="TXPowerSelector">
+				<Option value="4">High (4dBm)</Option>
+				<Option value="6">Medium (6dBm)</Option>
+				<Option value="16">Low (16dBm)</Option>
+			</Select>
+
+			<Title>Radio</Title>
+			<Label>
+				<Input
+					type="radio"
+					name="radioSelector"
+					value="2.4"
+					defaultChecked
+				/>
+				<Span></Span>
+				2.4 GHz
+			</Label>
+			<Label>
+				<Input
+				type="radio"
+				name="radioSelector"
+				value="5"
+			/>
+				<Span></Span>
+				5 GHz
+			</Label>
+
+			<ButtonsContainer>
+				<Button>Save</Button>
+				<Button>Cancel</Button>
+			</ButtonsContainer>
+
+		</form>
 	</Container>
 );
 
