@@ -45,11 +45,24 @@ const Label = styled.label`
 	&:last-of-type {
 		margin-bottom: ${props => props.theme.module * .5}px;
 	}
+
+	&:hover input ~ span {
+		background-color: white;
+	}
 `;
 
 const Input = styled.input`
-	position: absolute;
-	visibility: hidden;
+	display: none;
+
+	&:checked ~ span {
+		background-color: white;
+		border: ${props => props.theme.module / 4.5}px solid ${props => props.theme.mediumBlue};
+		box-sizing: border-box;
+	}
+
+	&:checked ~ span:after {
+		display: block;
+	}
 `;
 
 const Span = styled.span`
@@ -58,14 +71,8 @@ const Span = styled.span`
   height: ${props => props.theme.module * .7}px;
   left: 0;
 	position: absolute;
-	top: 0;
+	top: ${props => props.theme.module / 10}px;
 	width: ${props => props.theme.module * .7}px;
-
-	&:hover {
-		background-color: white;
-		opacity: .5;
-		transition: all .15s linear;
-	}
 `;
 
 const ButtonsContainer = styled.div`
@@ -94,6 +101,7 @@ const Button = styled.button`
 
 	&:focus {
 		outline: none;
+		transition: all .15s linear;
 	}
 `;
 
@@ -103,9 +111,9 @@ const Navigation = ( props ) => (
 
 			<Title>TX Power</Title>
 			<Select name="TXPowerSelector">
-				<Option value="4">High (4dBm)</Option>
-				<Option value="6">Medium (6dBm)</Option>
-				<Option value="16">Low (16dBm)</Option>
+				<Option value={4}>High (4dBm)</Option>
+				<Option value={6}>Medium (6dBm)</Option>
+				<Option value={16}>Low (16dBm)</Option>
 			</Select>
 
 			<Title>Radio</Title>
@@ -113,7 +121,7 @@ const Navigation = ( props ) => (
 				<Input
 					type="radio"
 					name="radioSelector"
-					value="2.4"
+					value={2.4}
 					defaultChecked
 				/>
 				<Span></Span>
@@ -123,7 +131,7 @@ const Navigation = ( props ) => (
 				<Input
 				type="radio"
 				name="radioSelector"
-				value="5"
+				value={5}
 			/>
 				<Span></Span>
 				5 GHz
