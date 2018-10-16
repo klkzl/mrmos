@@ -15,12 +15,12 @@ const Containter = styled.div`
 
 class FeApp extends Component {
 	state = {
-		// APPosition: [(window.innerWidth / 2), (window.innerHeight / 2)]
+		ilustrationSize: [],
 	}
 
-	// componentDidMount() {
-	// 	console.log(this.state.APPosition);
-	// }
+	componentDidMount() {
+		this.setState(() => ({ ilustrationSize: [ window.innerWidth - 300, window.innerHeight] }));
+	}
 
 	calculateCoverage = (e) => {
 		e.preventDefault();
@@ -33,14 +33,17 @@ class FeApp extends Component {
 	}
 
 	render() {
+		const ilustrationSize = this.state.ilustrationSize;
+
 		return (
 			<ThemeProvider theme={theme}>
 			<Containter>
-				<Ilustration />
+				<Ilustration ilustrationSize={ilustrationSize} />
 				<Navigation calculateCoverage={this.calculateCoverage} />
 			</Containter>
 		</ThemeProvider>
 		);
 	}
 }
+
 export default FeApp;

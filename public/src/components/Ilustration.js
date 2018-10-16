@@ -70,7 +70,7 @@ const Client = styled.div`
   z-index: 2;
 `;
 
-const Ilustration = ()  => (
+const Ilustration = ({ ilustrationSize })  => (
   <Container>
     <Fragment>
       {CLIENTS.map(item => (
@@ -83,7 +83,7 @@ const Ilustration = ()  => (
         />
       ))}
     </Fragment>
-    <Draggable bounds="parent">
+    <Draggable bounds="parent" defaultPosition={{ x: ilustrationSize[0], y: ilustrationSize[1] }}>
       <div style={{ width: 160, height: 160 }}>
         <Coverage />
         <Unifi src={unifi} />
