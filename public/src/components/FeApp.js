@@ -15,11 +15,11 @@ const Containter = styled.div`
 
 class FeApp extends Component {
 	state = {
-		ilustrationSize: [],
+		APLocation: [],
 	}
 
 	componentDidMount() {
-		this.setState(() => ({ ilustrationSize: [ window.innerWidth - 300, window.innerHeight] }));
+		this.setStartingLocation();
 	}
 
 	calculateCoverage = (e) => {
@@ -32,14 +32,39 @@ class FeApp extends Component {
 		console.log(radioOption);
 	}
 
-	render() {
-		const ilustrationSize = this.state.ilustrationSize;
+	handleStart = (data) => {
+		console.log(this.state.APLocation);
+	}
 
+	handleDrag = (e, data) => {
+		this.setState(() => ({ APLocation: [data.x, data.y ]}));
+		console.log(this.state.APLocation);
+	}
+
+	handleStop = (data) => {
+		console.log('dragging finished');
+	}
+
+	setStartingLocation = (el) => {
+		if (el) {
+			this.setState(() => ({ APLocation: [ el.getBoundingClientRect().x, el.getBoundingClientRect().y ]}));
+			console.log(el);
+		}
+	}
+
+	render() {
 		return (
 			<ThemeProvider theme={theme}>
 			<Containter>
-				<Ilustration ilustrationSize={ilustrationSize} />
-				<Navigation calculateCoverage={this.calculateCoverage} />
+				<Ilustration
+					setStartingLocation={this.setStartingLocation}
+					handleStart={this.handleStart}
+					handleDrag={this.handleDrag}
+					handleStop={this.handleStop}
+				/>
+				<Navigation
+					calculateCoverage={this.calculateCoverage}
+				/>
 			</Containter>
 		</ThemeProvider>
 		);

@@ -1,6 +1,6 @@
-import React, { Fragment } from 'react';
+import React, { Component, Fragment } from 'react';
 import styled from 'styled-components';
-import Draggable, { DraggableCore } from 'react-draggable';
+import Draggable from 'react-draggable';
 
 import { CLIENTS } from '../constants/clients';
 
@@ -70,30 +70,51 @@ const Client = styled.div`
   z-index: 2;
 `;
 
-const Ilustration = ({ ilustrationSize })  => (
-  <Container>
-    <Fragment>
-      {CLIENTS.map(item => (
-        <Client
-          key={item}
-          style={{
-            left: Math.floor(Math.random() * (window.innerWidth - 320) + 10),
-            top: Math.floor(Math.random() * (window.innerHeight - 20) + 10)
-          }}
-        />
-      ))}
-    </Fragment>
-    <Draggable bounds="parent" defaultPosition={{ x: ilustrationSize[0], y: ilustrationSize[1] }}>
-      <div style={{ width: 160, height: 160 }}>
-        <Coverage />
-        <Unifi src={unifi} />
-        <UnifiCover />
-      </div>
-    </Draggable>
-    <Scale>
-      100m
-    </Scale>
-  </Container>
-);
+class Ilustration extends Component {
+  shouldComponentUpdate(nextProps, nextState){
+    if (nextProps !== nextState) {
+      return false;
+    }
+ }
+
+  render() {
+    const { setStartingLocation, handleStart, handleDrag, handleStop } = this.props;
+
+    return (
+      <Container>
+      <Fragment>
+        {CLIENTS.map(item => (
+          <Client
+            key={item}
+            style={{
+              left: Math.floor(Math.random() * (window.innerWidth - 320) + 10),
+              top: Math.floor(Math.random() * (window.innerHeight - 20) + 10)
+            }}
+          />
+        ))}
+      </Fragment>
+      <Draggable
+        bounds="parent"
+        defaultPosition={{ x: (window.innerWidth - 300) / 2 - 80, y: window.innerHeight / 2 - 80 }}
+        onStart={handleStart}
+        onDrag={handleDrag}
+        onStop={handleStop}
+      >
+        <div
+          style={{ width: 160, height: 160 }}
+          ref={setStartingLocation}
+        >
+          <Coverage />
+          <Unifi src={unifi} />
+          <UnifiCover />
+        </div>
+      </Draggable>
+      <Scale>
+        100m
+      </Scale>
+    </Container>
+    );
+  }
+}
 
 export default Ilustration;
