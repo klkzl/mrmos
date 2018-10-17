@@ -39,6 +39,8 @@ class FeApp extends Component {
 	handleDrag = (e, data) => {
 		this.setState(() => ({ APLocation: [data.x, data.y ]}));
 		console.log(this.state.APLocation);
+		console.log(`reference x: ${data.x} - ${data.x + 160}`);
+		console.log(`reference y: ${data.y} - ${data.y + 160}`);
 	}
 
 	handleStop = (data) => {
@@ -49,6 +51,14 @@ class FeApp extends Component {
 		if (el) {
 			this.setState(() => ({ APLocation: [ el.getBoundingClientRect().x, el.getBoundingClientRect().y ]}));
 			console.log(el);
+		}
+	}
+
+	calculateAttachment() {
+		const radius = Math.pow(80, 2);
+		const distance = Math.pow(((Xp + 5) - (Xc + 80)), 2) + Math.pow(((Yp + 5) - (Yc + 80)), 2);
+		if (radius >= distance) {
+			return true;
 		}
 	}
 
